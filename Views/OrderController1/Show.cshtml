@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+    <title>Show</title>
+</head>
+<body>
+    <input id="Button1" type="button" value="button" onclick="Show()" />
+    <table>
+        <tr>
+            <td>序号</td>
+            <td>订单号</td>
+            <td>购买的商品</td>
+            <td>付款类型</td>
+            <td>价格</td>
+            <td>下单时间</td>
+            <td>支付方式</td>
+            <td>状态</td>
+            <td>顾客姓名</td>
+            <td>手机号</td>
+            <td>住址</td>
+            <td>订单状态</td>
+            <td>配货经销商</td>
+            <td>操作</td>
+        </tr>
+    </table>
+    <table id="tb1">
+    </table>
+</body>
+</html>
+<script>
+    $(function () {
+            Show();
+        })
+    function Show() {
+        $.ajax({
+            url: '/OrderController1/Show',
+            dataType: 'Json',
+            type: 'get',
+            success: function (d) {
+                $("#tb1").empty();
+                for (var i = 0; i < d.length; i++) {
+                    var html = '<tr>'
+                        + '<td>' + d.OrderId + "</td>"
+                        + '<td> fl000' + d.OrderId + "</td>"
+                        + '<td>' + d.ShaoppingName + "</td>"
+                        + '<td>' + d.MoneyType + "</td>"
+                        + '<td>' + d.PayMoney + "</td>"
+                        + '<td>' + d.OrderTime + "</td>"
+                        + '<td>' + d.PayType + "</td>"
+                        + '<td>' + d.MoneyState + "</td>"
+                        + '<td>' + d.UserName + "</td>"
+                        + '<td>' + d.OrderPhone + "</td>"
+                        + '<td>' + d.OrderAddress + "</td>"
+                        + '<td>' + d.OrderState + "</td>"
+                        + '<td>' + d.DistributionDealer + "</td>"
+                        + '<td>' + '<input id="' + d.OrderId + '" type="button" value="查看" />' + "</td>"
+                    $("#tb1").append(html);
+                }
+            }
+        })
+    }
+</script>

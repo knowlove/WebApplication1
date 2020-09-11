@@ -1,0 +1,131 @@
+﻿@model IEnumerable<D6TWO_Model.OrderTable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShaoppingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistributionDealer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LatelyTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTransfer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShaoppingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistributionDealer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyBank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayMoney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LatelyTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTransfer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

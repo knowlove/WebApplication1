@@ -1,0 +1,105 @@
+﻿@model IEnumerable<D6TWO_Model.OrderTable>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">添加新订单</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                序号
+            </th>
+            <th>
+                订单号
+            </th>
+            <th>购买的商品名称
+            </th>
+            <th>付款类型
+            </th>
+            <th>价格
+            </th>
+            <th>下单时间
+            </th>
+            <th>支付方式
+            </th>
+            <th>状态
+            </th>
+            <th>顾客姓名
+            </th>
+            <th>手机号
+            </th>
+            <th>住址
+            </th>
+            <th>订单状态
+            </th>
+            <th>配货经销商
+            </th>
+            <th>操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                fl00000 @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShaoppingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayMoney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistributionDealer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">删除订单</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
